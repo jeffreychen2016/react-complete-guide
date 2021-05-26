@@ -1,5 +1,5 @@
-import Expenses from "./components/Expenses";
-
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   const expenses = [
     {
@@ -23,10 +23,17 @@ function App() {
     },
   ];
 
+  // handlers
+  function addExpenseHandler(expense) {
+    console.log("addExpenseHandler called");
+    console.log(expense);
+  }
+
   return (
     <div>
+      {/* pass data from child component back to parent component */}
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
-      <h2>Let's get started!</h2>
     </div>
   );
 }
